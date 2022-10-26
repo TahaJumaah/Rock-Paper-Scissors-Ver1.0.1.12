@@ -1,32 +1,57 @@
 console.log("To play the Game, type play(); then make a choice, Rock, Paper, or Scissors.")
 let userChoiceText = 'Rock'
+let computerChoiceText = "sss";
 let userChoice = '0'
 let computerChoice = '0';
 let computerScore = '0';
 let userScore = '0';
+let rockChoice = document.querySelector(".rocksign");
+let paperChoice  = document.querySelector(".papersign");
+let scissorsChoice = document.querySelector(".scissorssign");
+let computerScoreText = document.getElementById('computerScore').textContent;
+let userScoreText = document.getElementById('you').textContent;
+let announcementText = document.getElementById('announcement').textContent;
+
+function scoreOnPage(){
+    document.getElementById('computerScore').textContent = computerScoreText + computerScore;
+    document.getElementById('you').textContent = userScoreText + userScore;
+    document.getElementById('announcement').textContent = computerChoiceText
 
 
-
-function userChoiceTransform(){
-    userChoiceText.toLowerCase()
-    if (userChoiceText.toLowerCase() === "rock" ) {
-        userChoice = 1
-    }
-    else if (userChoiceText.toLowerCase() === "paper"){
-        userChoice = 2
-    }
-    else {userChoice = 3}
 }
 
+function iPressedRock(){
+    userChoiceText = "rock"
+    play()
+    scoreOnPage()
+}
+
+function iPressedPaper(){
+    userChoiceText = "paper"
+    play()
+    scoreOnPage()
+
+}
+
+function iPressedScissors(){
+    userChoiceText = "scissors"
+    play()
+    scoreOnPage()
+
+}
+
+
+rockChoice.addEventListener("click", iPressedRock)
+paperChoice.addEventListener("click", iPressedPaper)
+scissorsChoice.addEventListener("click", iPressedScissors)
 
 
 
 function play(){
-    userChoiceText = prompt("Pick a Hand, Rock, Paper, or Scissors." , "")
 
+    
     computerChoice = Math.floor((Math.random()*3)+1)
 
-//    console.log(computerChoice)
    if (computerChoice === 1){
     computerChoiceText = "The computer picked Rock"
    }
@@ -36,16 +61,14 @@ function play(){
    else {
     computerChoiceText = "The computer picked Scissors"
    }
-   userChoiceTransform()
-   userChoiceText = userChoiceText.toLowerCase()
-//    console.log(`You Picked ${userChoiceText} ${userChoice}`)
+//    userChoiceText = userChoiceText.toLowerCase()
 
 
 //    This Part is for the logic, of who wins and loses.
 if (userChoiceText === "rock" || userChoiceText === "paper" || userChoiceText === "scissors"){
     console.log(computerChoiceText)
-switch (userChoice) {
-    case 1:
+switch (userChoiceText) {
+    case "rock":
         console.log("You picked Rock")
         if (computerChoice === 3){
             console.log("You win this one.")
@@ -60,7 +83,7 @@ switch (userChoice) {
         }
         break;
 
-    case 2:
+    case "paper":
         console.log("You picked Paper")
         if (computerChoice === 3){
             console.log("You lose this one, you SUCK!")
@@ -75,7 +98,7 @@ switch (userChoice) {
         }
         break;
 
-    case 3:
+    case "scissors":
         console.log("You picked Scissors")
         if (computerChoice === 3) {
             console.log("It's a draw, GIT GUD!")
@@ -96,17 +119,59 @@ else{
     console.log("Either pick Rock, Paper, or Scissors.")
 }
 console.log(`Computer: ${computerScore} You: ${userScore}`)
-console.log("------------------------")
+
+if (computerScore === 3){
+    console.log("Game Over, you lost, Resetting.")
+    userScore = 0
+    computerScore = 0
+    document.getElementById('announcement2').textContent = "Game Over, you lost, Resetting."
+
+    
+    
 }
+
+else if(userScore === 3){
+    console.log("Game Over, you Win, Resetting.")
+    userScore = 0
+    computerScore = 0
+    document.getElementById('announcement2').textContent = "Game Over, you won, Resetting."
+
+
+}
+
+console.log("------------------------")
+
+}
+
+
+
 
 // This part is for the calculation of the score, and ending the game:
 
-while (computerScore < 3 && userScore < 3){
-    play()
-    if (computerScore === 3) {
-        console.log("The computer won the game, try to practice more.")
-    }
-    else if (userScore === 3) {
-        console.log("You won the game, congrats, expect a call from the president anytime now.")
-    }
-}
+// while (computerScore < 3 && userScore < 3){
+//     // play()
+//     if (computerScore === 3) {
+//         console.log("The computer won the game, try to practice more.")
+//     }
+//     else if (userScore === 3) {
+//         console.log("You won the game, congrats, expect a call from the president anytime now.")
+//     }
+// }
+
+
+
+
+
+
+
+
+// function userChoiceTransform(){
+//     userChoiceText.toLowerCase()
+//     if (userChoiceText.toLowerCase() === "rock" ) {
+//         userChoice = 1
+//     }
+//     else if (userChoiceText.toLowerCase() === "paper"){
+//         userChoice = 2
+//     }
+//     else {userChoice = 3}
+// }
