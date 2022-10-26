@@ -1,0 +1,39 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #FFFADA ;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    justify-content:space-around;
+}
+
+
+.mainviewport{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+    margin-bottom: 25vh;
+    height: 75vh;
+    width: 75vw;
+    background-color: #FFFADA;
+
+}
+
+.signsplace{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+
+}
+
+.rocksign, .papersign, .scissorssign{
+    height: 25%;
+    width: 25%;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
